@@ -29,7 +29,6 @@ public class JohnMovement : MonoBehaviour
         else if (Horizontal > 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
         Animator.SetBool("running", Horizontal != 0.0f);
-        Animator.SetBool("attacking", Horizontal != 0.0f);
 
 
         // Detectar Suelo
