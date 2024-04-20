@@ -14,7 +14,7 @@ public class PlayerJump : MonoBehaviour
     private CollisionDetection _collisionDetection;
     private Rigidbody2D _rigidbody;
 
-    // TODO: Add variables to track number of jumps
+
     public int MaxJumps = 4;
     private int JumpCount = 0;
 
@@ -32,7 +32,7 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TryJump();
-            Animator.SetBool("jump",Vertical <= 0.0f);
+            Animator.SetBool("jump", Vertical <= 0.0f);
 
         }
     }
@@ -44,7 +44,7 @@ public class PlayerJump : MonoBehaviour
 
     bool CanJump()
     {
-        // TODO: Check also number of jumps
+        //  number of jumps
         return _collisionDetection.IsGrounded || JumpCount < MaxJumps;
     }
 
@@ -54,7 +54,7 @@ public class PlayerJump : MonoBehaviour
         var vel = new Vector2(_rigidbody.velocity.x, GetJumpForce());
         _rigidbody.velocity = vel;
 
-        // TODO: Count number of jumps
+        // Count number of jumps
         JumpCount++;
     }
 
@@ -65,16 +65,27 @@ public class PlayerJump : MonoBehaviour
 
     private void SetGravity()
     {
-        
-        // TODO: Scale gravity by jumps done
+
+        //  Scale gravity by jumps done
         var grav = 2 * JumpHeight / (TimeToMaxHeight * TimeToMaxHeight);
         _rigidbody.gravityScale = grav / 9.81f * (1 + 0.25f * JumpCount);
     }
 
     void OnLanding()
     {
-        // TODO: Reset jumps and gravity
+        // Reset jumps and gravity
         JumpCount = 0;
         _rigidbody.gravityScale = 1;
+
+        Animator.SetBool("jump", false);
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")) // Si el personaje toca el suelo
+        {
+            OnLanding();
+        }
+    }
+
 }
+
