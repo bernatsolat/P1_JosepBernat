@@ -19,6 +19,11 @@ public class JohnMovement : MonoBehaviour
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        PhysicsMaterial2D noFrictionMaterial = new PhysicsMaterial2D();
+        noFrictionMaterial.friction = 0;
+
+        // Aplicar el Material de Física 2D al BoxCollider2D del objeto
+        GetComponent<BoxCollider2D>().sharedMaterial = noFrictionMaterial;
     }
 
     private void Update()
