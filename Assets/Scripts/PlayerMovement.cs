@@ -38,7 +38,7 @@ public class JohnMovement : MonoBehaviour
         
         
 
-        Animator.SetBool("running", Horizontal != 0.0f);
+        Animator.SetFloat("Speed", Mathf.Abs(Horizontal));
         
 
         // Detectar Suelo
