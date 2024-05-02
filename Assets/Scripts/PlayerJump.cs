@@ -6,9 +6,8 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     public float JumpHeight;
-    private Animator Animator;
     public float TimeToMaxHeight;
-    private float Vertical;
+    
 
 
     private CollisionDetection _collisionDetection;
@@ -22,17 +21,17 @@ public class PlayerJump : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
-        Animator = GetComponent<Animator>();
+       
 
     }
 
     void Update()
     {
-        Vertical = Input.GetAxisRaw("Vertical");
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TryJump();
-            Animator.SetBool("jump", Vertical <= 0.0f);
+            
 
         }
     }
@@ -50,6 +49,7 @@ public class PlayerJump : MonoBehaviour
 
     public void OnJump()
     {
+        Animations.Instance.ChangeAnimationState("Player_Jump");
         SetGravity();
         var vel = new Vector2(_rigidbody.velocity.x, GetJumpForce());
         _rigidbody.velocity = vel;
@@ -77,7 +77,7 @@ public class PlayerJump : MonoBehaviour
         JumpCount = 0;
         _rigidbody.gravityScale = 1;
 
-        Animator.SetBool("jump", false);
+        Animations.Instance.ChangeAnimationState("Player_Ide");
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

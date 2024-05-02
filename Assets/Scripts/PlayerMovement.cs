@@ -25,10 +25,20 @@ public class JohnMovement : MonoBehaviour
         // Movimiento
         Horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Horizontal < 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        else if (Horizontal > 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        if (Horizontal < 0.0f)
+        {
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f); 
+            Animations.Instance.ChangeAnimationState("Player_Run");
+        }
+        else if (Horizontal > 0.0f)
+        {
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            Animations.Instance.ChangeAnimationState("Player_Run");
+        }
+        else Animations.Instance.ChangeAnimationState("Player_Ide");
 
-        Animator.SetBool("running", Horizontal != 0.0f);
+
+        // Animator.SetBool("running", Horizontal != 0.0f);
 
 
         // Detectar Suelo
