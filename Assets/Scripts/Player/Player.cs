@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float walkSpeed = 2f;
 
-    private Animator animator;
+    
     
 
     private float xAxis;
@@ -17,14 +17,14 @@ public class Player : MonoBehaviour
     private float jumpForce = 150;
     private int groundMask;
     private bool isGrounded;
-    private string currentAnimaton;
-    private bool isAttackPressed;
+   
+    private bool isAttackInputPressed;
     private bool isAttacking;
-    private bool isDistanceAttackPressed;
+   // private bool isDistanceAttackPressed;
 
 
     [SerializeField]
-    private float attackDelay = 0.4f;
+    private float attackAnimationDuration = 0.4f;
 
     //Animation States
    
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+       
         groundMask = 1 << LayerMask.NameToLayer("Ground");
 
 
@@ -59,21 +59,22 @@ public class Player : MonoBehaviour
         //space Atatck key pressed?
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            isAttackPressed = true;
+            isAttackInputPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+       /* if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             isDistanceAttackPressed = true;
         }
+       */
         
     }
     IEnumerator Attack()
     {
         isAttacking = true;
-        isAttackPressed = false;
+        isAttackInputPressed = false;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
 
-         yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(attackAnimationDuration);
         isAttacking = false;
     }
     private void FixedUpdate()
@@ -81,39 +82,37 @@ public class Player : MonoBehaviour
       
         //check if player is on the ground
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, groundMask);
-        if (hit.collider != null)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+
+        isGrounded = hit.collider != null;
+
         //-
         //Check update movement based on input
-        Vector2 vel = new Vector2(0, rb2d.velocity.y);
-        if (xAxis < 0)
-        {
-            vel.x = -walkSpeed;
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else if (xAxis > 0)
-        {
-            vel.x = walkSpeed;
-            transform.localScale = new Vector2(1, 1);
-        }
-        else
-        {
-            vel.x = 0;
 
+
+        Vector2 vel = new Vector2(0, rb2d.velocity.y);
+        if (!isAttacking)
+        {
+            if (xAxis < 0)
+            {
+                vel.x = -walkSpeed;
+                transform.localScale = new Vector2(-1, 1);
+            }
+            if (xAxis > 0)
+            {
+                vel.x = walkSpeed;
+                transform.localScale = new Vector2(1, 1);
+            }
+        
         }
-        if (isAttackPressed && !isAttacking)
+
+
+        if (isAttackInputPressed && !isAttacking)
         { 
             StartCoroutine(Attack());
         }
         else if (isGrounded && !isAttacking)
         {
-            if (xAxis != 0) PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Walk);
+            if (xAxis != 0) PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Walk); 
 
             else PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
 
@@ -121,10 +120,9 @@ public class Player : MonoBehaviour
         //Check if trying to jump
         if (isJumpPressed && isGrounded)
         {
-            rb2d.AddForce(new Vector2(0, jumpForce));
+            rb2d.AddForce(Vector2.up * jumpForce);
             isJumpPressed = false;
             PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Jump);
-
         }
         //assign the new velocity to the rigidbody
         rb2d.velocity = vel;
@@ -155,7 +153,7 @@ public class Player : MonoBehaviour
 
 
 
-        }
+     }
     
   
 }

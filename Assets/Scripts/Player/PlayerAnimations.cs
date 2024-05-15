@@ -17,7 +17,7 @@ public class PlayerAnimations : MonoBehaviour
     }
 
     [SerializeField] private Animator PlayerAnimator;
-    [SerializeField] private Animator EnemyAnimator;
+   // [SerializeField] private Animator EnemyAnimator;
     private string idleName="PlayerIdle";
     private string jumpname = "PlayerJump";
     private string walkName = "PlayerWalk";
@@ -26,13 +26,14 @@ public class PlayerAnimations : MonoBehaviour
     private string dieName = "PlayerDie";
     private string currentState;
 
-
+    /*
     private string EnemyWalk = "Walk";
     private string EnemyAttack = "Attack";
     private string EnemyIdle = "Idle";
     private string headstate;
+    */
 
-
+    
     public void ChangeAnimation(PlayerAnim newAnim)
     {
 
@@ -59,58 +60,11 @@ public class PlayerAnimations : MonoBehaviour
             default: throw new System.Exception("error"); 
         }
     }
-    
-    public void ChangeHeadAnimation(EnemiAnim newAnim)
-    {
-
-        switch (newAnim)
-        {
-
-            case EnemiAnim.Walk:
-                ChangeHeadAnimationState(EnemyWalk); break;
-
-            case EnemiAnim.Attack:
-                ChangeHeadAnimationState(EnemyAttack); break;
-            
-            case EnemiAnim.InDeath:
-                ChangeHeadAnimationState(EnemyIdle);
-                break;
-            
-
-            default: throw new System.Exception("error");
-        }
-    }
-    
- 
-    
-    private void ChangeHeadAnimationState(string newState)
-    {
-        if (headstate == newState) return;
-        PlayerAnimator.Play(newState);
-        headstate = newState;
-    }
-    
-
-    private void ChangeAnimationState(string newState)
+     
+        private void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
-        EnemyAnimator.Play(newState);
+        PlayerAnimator.Play(newState);
         currentState = newState;
     }
-}
-
-public enum PlayerAnim
-{
-    Idle,
-    Jump,
-    Walk,
-    Shoot,
-    Attack,
-    Die
-}
-public enum EnemiAnim
-{
-    Walk, 
-    Attack,
-    InDeath
 }
