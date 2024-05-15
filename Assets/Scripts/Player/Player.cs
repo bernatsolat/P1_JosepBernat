@@ -27,10 +27,7 @@ public class Player : MonoBehaviour
     private float attackDelay = 0.4f;
 
     //Animation States
-    const string PLAYER_IDE = "Player_ide";
-    const string PLAYER_ATTACK = "Player_attack";
-    const string PLAYER_RUN = "Player_run";
-    const string PLAYER_JUMP = "Player_jump";
+   
 
     // Start is called before the first frame update
     void Start()
@@ -74,13 +71,14 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
         isAttackPressed = false;
-        ChangeAnimationState(PLAYER_ATTACK);
-       
-        yield return new WaitForSeconds(attackDelay);
+        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
+
+         yield return new WaitForSeconds(attackDelay);
         isAttacking = false;
     }
     private void FixedUpdate()
     {
+      
         //check if player is on the ground
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, groundMask);
         if (hit.collider != null)
@@ -115,9 +113,9 @@ public class Player : MonoBehaviour
         }
         else if (isGrounded && !isAttacking)
         {
-            if (xAxis != 0) ChangeAnimationState(PLAYER_RUN);
+            if (xAxis != 0) PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Walk);
 
-            else ChangeAnimationState(PLAYER_IDE);
+            else PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
 
         }
         //Check if trying to jump
@@ -125,7 +123,7 @@ public class Player : MonoBehaviour
         {
             rb2d.AddForce(new Vector2(0, jumpForce));
             isJumpPressed = false;
-            ChangeAnimationState(PLAYER_JUMP);
+            PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Jump);
 
         }
         //assign the new velocity to the rigidbody
@@ -159,12 +157,6 @@ public class Player : MonoBehaviour
 
         }
     
-    void ChangeAnimationState(string newAnimation)
-    {
-        if (currentAnimaton == newAnimation) return;
-
-        animator.Play(newAnimation);
-        currentAnimaton = newAnimation;
-    }
+  
 }
 
