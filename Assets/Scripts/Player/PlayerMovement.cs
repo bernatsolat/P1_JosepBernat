@@ -72,18 +72,13 @@ public class PlayerMovement : MonoBehaviour
             Rigidbody2D.velocity = Vector2.zero;
         }
     }
-    public void TakeDamage(int damage)
-    {
-        
-        Health -= damage;
-    }
 
-        private void Attack()
+    private void Attack()
     {
         IsAttacking = true;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
-        Invoke("DealDamage", 0.1f); 
-        Invoke("FinishAttack", 0.5f); 
+        Invoke("DealDamage", 0.1f); // Assuming 0.1 seconds for the attack animation to reach the hit point
+        Invoke("FinishAttack", 0.5f); // Assuming 0.5 seconds for the complete attack animation duration
     }
 
     private void DealDamage()
