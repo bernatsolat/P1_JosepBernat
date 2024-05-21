@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator EnemyAnimator;
-    public EnemyFMS EnemyMovement; 
+    public EnemyFMS EnemyMovement; // Referencia al script EnemyFMS
     public int Health = 3;
 
     private void Start()
     {
+        // Asegúrate de que EnemyMovement esté asignado
         if (EnemyMovement == null)
         {
             EnemyMovement = GetComponent<EnemyFMS>();
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyMovement != null)
         {
-            EnemyMovement.CanMove = false; 
+            EnemyMovement.CanMove = false; // Deshabilitar el movimiento
         }
 
         EnemyAnimator.SetTrigger("Hurt");
@@ -29,11 +30,11 @@ public class Enemy : MonoBehaviour
         if (Health <= 0)
         {
             EnemyAnimator.SetBool("Dead", true);
-            Invoke("Die", 0.8f); 
+            Invoke("Die", 0.8f); // Desactivar después de 0.8 segundos
         }
         else
         {
-            Invoke("EnableMovement", 0.5f);
+            Invoke("EnableMovement", 0.5f); // Volver a habilitar el movimiento después de la animación de daño
         }
     }
 
@@ -41,7 +42,7 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyMovement != null)
         {
-            EnemyMovement.CanMove = true; 
+            EnemyMovement.CanMove = true; // Volver a habilitar el movimiento
         }
     }
 
