@@ -77,8 +77,8 @@ public class PlayerMovement : MonoBehaviour
     {
         IsAttacking = true;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
-        Invoke("DealDamage", 0.1f); // Assuming 0.1 seconds for the attack animation to reach the hit point
-        Invoke("FinishAttack", 0.5f); // Assuming 0.5 seconds for the complete attack animation duration
+        Invoke("DealDamage", 0.1f); 
+        Invoke("FinishAttack", 0.5f); 
     }
 
     private void DealDamage()

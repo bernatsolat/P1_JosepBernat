@@ -44,7 +44,6 @@ public class PlayerJump : MonoBehaviour
         var vel = new Vector2(_rigidbody.velocity.x, GetJumpForce());
         _rigidbody.velocity = vel;
 
-        // Count number of jumps
         JumpCount++;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Jump);
 
@@ -68,7 +67,7 @@ public class PlayerJump : MonoBehaviour
 
     void OnLanding()
     {
-        // Reset jumps and gravity
+      
         JumpCount = 0;
         _rigidbody.gravityScale = 1;
 

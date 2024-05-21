@@ -5,19 +5,44 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator EnemyAnimator;
-    private string damagedEnemy = "damaged";
+    public EnemyFMS EnemyMovement; 
     public int Health = 3;
-    
+
+    private void Start()
+    {
+      
+        if (EnemyMovement == null)
+        {
+            EnemyMovement = GetComponent<EnemyFMS>();
+        }
+    }
+
     public void TakeDamage(int damage)
     {
+        if (EnemyMovement != null)
+        {
+            EnemyMovement.CanMove = false; 
+        }
+
         EnemyAnimator.SetTrigger("Hurt");
         Health -= damage;
+
         if (Health <= 0)
         {
+            EnemyAnimator.SetBool("Dead", true);
+            Invoke("Die", 0.8f); 
+        }
+        else
+        {
+            Invoke("EnableMovement", 0.5f); 
+        }
+    }
 
-            EnemyAnimator.SetBool("Dead",true);
-            Invoke("Die", 0.8f);
-
+    private void EnableMovement()
+    {
+        if (EnemyMovement != null)
+        {
+            EnemyMovement.CanMove = true; 
         }
     }
 
@@ -25,5 +50,4 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 }
