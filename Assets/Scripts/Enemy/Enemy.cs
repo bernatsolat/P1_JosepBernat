@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private static Enemy instance;
-    public static Enemy Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = FindAnyObjectByType<Enemy>();
-            return instance;
-        }
-    }
     public Animator EnemyAnimator;
     private string damagedEnemy = "damaged";
     public int Health = 3;
@@ -26,7 +16,7 @@ public class Enemy : MonoBehaviour
         {
 
             EnemyAnimator.SetBool("Dead",true);
-            Invoke("Die", 1f);
+            Invoke("Die", 0.8f);
 
         }
     }
@@ -36,8 +26,4 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public int getHealth()
-    {
-        return Health;
-    }
 }

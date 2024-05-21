@@ -1361,11 +1361,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  isRight: 0
-  timer: 0
+  player: {fileID: 1527032158}
   timeToChange: 4
-  mustChase: 1
-  objective: {fileID: 1527032161}
+  isRight: 0
 --- !u!70 &1030616224
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1997,11 +1995,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.7
-  isRight: 0
-  timer: 0
+  player: {fileID: 1527032158}
   timeToChange: 4
-  mustChase: 1
-  objective: {fileID: 1527032161}
+  isRight: 0
 --- !u!114 &1786616857
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,51 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyFMS : MonoBehaviour
+public class EnemyFMS : MonoBehaviour
 {
     public float speed;
-
-    public bool isRight;
-
-    public float timer;
+    public GameObject player;
     public float timeToChange = 4f;
+    public bool isRight = false;
 
-    public bool mustChase;
-    public Transform objective;
-    // Start is called before the first frame update
+    private Vector3 initialScale;
+    private float timer;
+
     void Start()
     {
         timer = timeToChange;
+        initialScale = transform.localScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(isRight == true)
+        // Calcula la dirección desde el enemigo hacia el jugador
+        Vector3 heading = player.transform.position - transform.position;
+
+        // Voltea la escala horizontalmente si el jugador está a la izquierda
+        if (heading.x < 0)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-initialScale.x, initialScale.y, initialScale.z);
+        }
+        else
+        {
+            transform.localScale = initialScale;
         }
 
-        if (isRight == false)
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-            transform.localScale = new Vector3(-1, 1, 1);
-
-        }
-
-        timer -= Time.deltaTime;
-
-        if(timer <= 0)
-        {
-            timer = timeToChange;
-            isRight = !isRight;
-        }
-
-        if(mustChase == true)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, objective.position, speed * Time.deltaTime);
-
-        }
+        // Mueve al enemigo hacia el jugador
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 }
