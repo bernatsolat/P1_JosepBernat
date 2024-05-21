@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     public Animator EnemyAnimator;
     public EnemyFMS EnemyMovement; // Referencia al script EnemyFMS
     public int Health = 3;
+    public float AttackRange = 0.5f;
+    public int AttackDamage = 1;
+    public LayerMask PlayerLayer;
 
     private void Start()
     {
@@ -49,5 +52,30 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void Attack()
+    {
+        EnemyAnimator.SetTrigger("Attack");
+        Invoke("DealDamage", 0.1f); // Ajusta el tiempo según la animación de ataque
+    }
+
+    private void DealDamage()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(position, direction, AttackRange, PlayerLayer);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider != null)
+            {
+                PlayerLive player = hit.collider.GetComponent<PlayerLive>();
+                if (player != null)
+                {
+                    player.TakeDamage(AttackDamage);
+                }
+            }
+        }
     }
 }
