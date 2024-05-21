@@ -31,12 +31,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (!IsAttacking && !IsJumping)
+        if (!IsAttacking )
         {
             
-             if (Horizontal < 0.0f)
+             if (Horizontal < 0.0f && !IsJumping)
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            else if (Horizontal > 0.0f)
+            else if (Horizontal > 0.0f && !IsJumping)
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
            
@@ -48,14 +48,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
             }
-            
 
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !IsAttacking)
+            {
+                Attack();
+            }
 
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0)&&!IsAttacking)
-        {
-            Attack();
-        }
+       
     }
 
     private void FixedUpdate()
