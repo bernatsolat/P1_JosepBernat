@@ -1385,7 +1385,7 @@ CapsuleCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1440,6 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e0413e280036046a9c08e4f8b71d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 1030616220}
   Health: 3
 --- !u!1 &1227058164
 GameObject:
@@ -2013,6 +2014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e0413e280036046a9c08e4f8b71d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 1786616853}
   Health: 3
 --- !u!58 &1786616858
 CircleCollider2D:
@@ -2033,7 +2035,7 @@ CircleCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2046,9 +2048,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.025279999, y: -0.0300951}
   serializedVersion: 2
-  m_Radius: 0.205
+  m_Radius: 0.12314129
 --- !u!1 &1787889644
 GameObject:
   m_ObjectHideFlags: 0
