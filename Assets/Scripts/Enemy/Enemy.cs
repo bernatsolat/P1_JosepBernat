@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public int AttackDamage = 1;
     public LayerMask PlayerLayer;
 
+    private bool isAttacking = false;
+
     private void Start()
     {
         // Asegúrate de que EnemyMovement esté asignado
@@ -56,8 +58,14 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        EnemyAnimator.SetTrigger("Attack");
-        Invoke("DealDamage", 0.1f); // Ajusta el tiempo según la animación de ataque
+        if (!isAttacking)
+        {
+            isAttacking = true;
+            EnemyMovement.CanMove = false; // Detener el movimiento durante el ataque
+            EnemyAnimator.SetTrigger("Attack");
+            Invoke("DealDamage", 0.4f); // Ajusta el tiempo según la duración de la animación de ataque
+            Invoke("FinishAttack", 0.5f); // Ajusta el tiempo según la duración completa de la animación de ataque
+        }
     }
 
     private void DealDamage()
@@ -77,5 +85,11 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void FinishAttack()
+    {
+        isAttacking = false;
+        EnemyMovement.CanMove = true; // Permitir el movimiento nuevamente
     }
 }

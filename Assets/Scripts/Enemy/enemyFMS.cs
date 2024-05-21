@@ -28,10 +28,6 @@ public class EnemyFMS : MonoBehaviour
         {
             MoveTowardsPlayer();
         }
-        else
-        {
-            CheckAttack();
-        }
     }
 
     private void MoveTowardsPlayer()
@@ -57,19 +53,6 @@ public class EnemyFMS : MonoBehaviour
         {
             CanMove = false;
             enemy.Attack();
-        }
-    }
-
-    private void CheckAttack()
-    {
-        // Comprueba si está en la distancia de ataque
-        if (Vector2.Distance(transform.position, player.transform.position) <= attackDistance)
-        {
-            enemy.Attack();
-        }
-        else
-        {
-            CanMove = true;
         }
     }
 }
