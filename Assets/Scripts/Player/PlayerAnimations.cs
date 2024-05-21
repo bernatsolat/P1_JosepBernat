@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
@@ -9,7 +7,8 @@ public class PlayerAnimations : MonoBehaviour
     private static PlayerAnimations instance;
     public static PlayerAnimations Instance
     {
-        get { 
+        get
+        {
             if (instance == null)
                 instance = FindAnyObjectByType<PlayerAnimations>();
             return instance;
@@ -17,54 +16,32 @@ public class PlayerAnimations : MonoBehaviour
     }
 
     [SerializeField] private Animator PlayerAnimator;
-   // [SerializeField] private Animator EnemyAnimator;
-    private string idleName="PlayerIdle";
-    private string jumpname = "PlayerJump";
+    private string idleName = "PlayerIdle";
+    private string jumpName = "PlayerJump";
     private string walkName = "PlayerWalk";
-    private string shootName = "PlayerShoot";
     private string attackName = "PlayerAttack";
     private string dieName = "PlayerDie";
     private string currentState;
 
-    /*
-    private string EnemyWalk = "Walk";
-    private string EnemyAttack = "Attack";
-    private string EnemyIdle = "Idle";
-    private string headstate;
-    */
-
-    
     public void ChangeAnimation(PlayerAnim newAnim)
     {
-
-        switch (newAnim) {
-            case PlayerAnim.Idle: 
-                ChangeAnimationState(idleName); break;
-
-            case PlayerAnim.Jump:
-                ChangeAnimationState(jumpname); break;
-
-            case PlayerAnim.Walk:
-                ChangeAnimationState(walkName); break;
-
-            case PlayerAnim.Shoot:
-                ChangeAnimationState(shootName); break;
-
-            case PlayerAnim.Attack:
-                ChangeAnimationState(attackName); break;
-
-
-            case PlayerAnim.Die:
-                ChangeAnimationState(dieName); break;
-
-            default: throw new System.Exception("error"); 
-        }
-    }
-     
-        private void ChangeAnimationState(string newState)
-    {
+        string newState = GetAnimationName(newAnim);
         if (currentState == newState) return;
+
         PlayerAnimator.Play(newState);
         currentState = newState;
+    }
+
+    private string GetAnimationName(PlayerAnim anim)
+    {
+        switch (anim)
+        {
+            case PlayerAnim.Idle: return idleName;
+            case PlayerAnim.Jump: return jumpName;
+            case PlayerAnim.Walk: return walkName;
+            case PlayerAnim.Attack: return attackName;
+            case PlayerAnim.Die: return dieName;
+            default: throw new System.Exception("Unknown animation");
+        }
     }
 }
