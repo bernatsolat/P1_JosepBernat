@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float Horizontal;
     private int Health = 5;
     private bool IsAttacking = false;
+    private bool IsJumping = false;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (!IsAttacking)
+        if (!IsAttacking && !IsJumping)
         {
             if (Horizontal < 0.0f)
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
@@ -107,5 +108,24 @@ public class PlayerMovement : MonoBehaviour
         Vector2 position = transform.position;
         Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         Gizmos.DrawLine(position, position + direction * AttackRange);
+    }
+
+    public void OnLanding()
+    {
+        IsJumping = false;
+        if (Mathf.Abs(Horizontal) > 0.0f)
+        {
+            PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Walk);
+        }
+        else
+        {
+            PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
+        }
+    }
+
+    public void OnJump()
+    {
+        IsJumping = true;
+        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Jump);
     }
 }

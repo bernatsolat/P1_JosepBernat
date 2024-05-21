@@ -47,6 +47,11 @@ public class PlayerJump : MonoBehaviour
         // Count number of jumps
         JumpCount++;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Jump);
+        var playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.OnJump();
+        }
     }
 
     private float GetJumpForce()
@@ -65,7 +70,13 @@ public class PlayerJump : MonoBehaviour
         // Reset jumps and gravity
         JumpCount = 0;
         _rigidbody.gravityScale = 1;
+
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
+        var playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.OnLanding();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
