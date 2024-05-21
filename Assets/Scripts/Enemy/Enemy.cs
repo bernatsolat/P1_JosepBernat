@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator EnemyAnimator;
+<<<<<<< Updated upstream
     public EnemyFMS EnemyMovement; 
     public int Health = 3;
 
@@ -17,6 +18,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+=======
+    public int Health = 3;
+    public float AttackRange;
+    public int AttackDamage;
+    public LayerMask PlayerLayer;
+>>>>>>> Stashed changes
     public void TakeDamage(int damage)
     {
         if (EnemyMovement != null)
@@ -50,4 +57,23 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+<<<<<<< Updated upstream
+=======
+
+    private void DealDamage()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(position, direction, AttackRange, PlayerLayer);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider != null)
+            {
+                EnemyAnimator.SetTrigger("attack");
+                hit.collider.GetComponent<PlayerMovement>().TakeDamage(AttackDamage);
+            }
+        }
+    }
+>>>>>>> Stashed changes
 }
