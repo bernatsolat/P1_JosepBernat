@@ -47,6 +47,7 @@ public class PlayerJump : MonoBehaviour
         // Count number of jumps
         JumpCount++;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Jump);
+
         var playerMovement = GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {

@@ -33,12 +33,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (!IsAttacking && !IsJumping)
         {
-            if (Horizontal < 0.0f)
+            
+             if (Horizontal < 0.0f)
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             else if (Horizontal > 0.0f)
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
-            if (Mathf.Abs(Horizontal) > 0.0f)
+           
+             if (Mathf.Abs(Horizontal) > 0.0f)
             {
                 PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Walk);
             }
@@ -46,11 +48,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
             }
+            
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Attack();
-            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0)&&!IsAttacking)
+        {
+            Attack();
         }
     }
 
@@ -77,8 +81,8 @@ public class PlayerMovement : MonoBehaviour
     {
         IsAttacking = true;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
-        Invoke("DealDamage", 0.1f); // Assuming 0.1 seconds for the attack animation to reach the hit point
-        Invoke("FinishAttack", 0.5f); // Assuming 0.5 seconds for the complete attack animation duration
+        Invoke("DealDamage", 0.1f); // for the attack animation to reach the hit point
+        Invoke("FinishAttack", 0.5f); // for the complete attack animation duration
     }
 
     private void DealDamage()
