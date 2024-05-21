@@ -1364,6 +1364,8 @@ MonoBehaviour:
   player: {fileID: 1527032158}
   timeToChange: 4
   isRight: 0
+  CanMove: 1
+  attackDistance: 0.5
 --- !u!70 &1030616224
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1439,7 +1441,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyAnimator: {fileID: 1030616220}
+  EnemyMovement: {fileID: 1030616223}
   Health: 3
+  AttackRange: 0.5
+  AttackDamage: 1
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1227058164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,7 +1527,7 @@ Transform:
   m_GameObject: {fileID: 1227058164}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.03, y: 0.3245144, z: -0.0729682}
+  m_LocalPosition: {x: -4.03, y: 0.32, z: -0.0729682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2012,6 +2020,8 @@ MonoBehaviour:
   player: {fileID: 1527032158}
   timeToChange: 4
   isRight: 0
+  CanMove: 1
+  attackDistance: 0.5
 --- !u!114 &1786616857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,7 +2035,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyAnimator: {fileID: 1786616853}
+  EnemyMovement: {fileID: 0}
   Health: 3
+  AttackRange: 0.5
+  AttackDamage: 1
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!58 &1786616858
 CircleCollider2D:
   m_ObjectHideFlags: 0
