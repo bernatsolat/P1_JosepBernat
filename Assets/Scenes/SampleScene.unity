@@ -1440,11 +1440,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyAnimator: {fileID: 1030616220}
   Health: 3
-  AttackRange: 1
-  AttackDamage: 1
-  PlayerLayer:
-    serializedVersion: 2
-    m_Bits: 1
 --- !u!1 &1227058164
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,11 +2026,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyAnimator: {fileID: 1786616853}
   Health: 3
-  AttackRange: 0
-  AttackDamage: 0
-  PlayerLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!58 &1786616858
 CircleCollider2D:
   m_ObjectHideFlags: 0

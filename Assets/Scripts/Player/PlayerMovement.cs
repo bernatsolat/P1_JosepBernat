@@ -72,13 +72,8 @@ public class PlayerMovement : MonoBehaviour
             Rigidbody2D.velocity = Vector2.zero;
         }
     }
-    public void TakeDamage(int damage)
-    {
-        
-        Health -= damage;
-    }
 
-        private void Attack()
+    private void Attack()
     {
         IsAttacking = true;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
