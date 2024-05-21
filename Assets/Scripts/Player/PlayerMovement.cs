@@ -9,7 +9,7 @@ public class JohnMovement : MonoBehaviour
     public GameObject BulletPrefab;
 
     private Rigidbody2D Rigidbody2D;
-    private Animator Animator;
+   
     private float Horizontal;
     private float LastShoot;
     private int Health = 5;
@@ -18,7 +18,7 @@ public class JohnMovement : MonoBehaviour
     private void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
-        Animator = GetComponent<Animator>();
+       
         PhysicsMaterial2D noFrictionMaterial = new PhysicsMaterial2D();
         noFrictionMaterial.friction = 0;
 
@@ -38,7 +38,6 @@ public class JohnMovement : MonoBehaviour
         
         
 
-        Animator.SetFloat("Speed", Mathf.Abs(Horizontal));
         
 
         // Detectar Suelo
