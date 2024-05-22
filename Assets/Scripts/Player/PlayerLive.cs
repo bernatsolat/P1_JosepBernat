@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class PlayerLive : MonoBehaviour
 {
-    
-    
+
+
     public int Health = 5;
 
     public void TakeDamage(int damage)
     {
-        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
         Health -= damage;
+        Invoke("AnimationTakeDamage", 0.8f);
+    }
+    public void AnimationTakeDamage()
+    {
+        
+        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
+        
         if (Health <= 0)
         {
 
-            PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
+            
             Invoke("Die", 0.8f);
-
         }
     }
 
+
     private void Die()
     {
-        Destroy(gameObject);
+    PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
+    Destroy(gameObject);
     }
+
 }
