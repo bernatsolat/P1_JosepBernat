@@ -1259,7 +1259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1030616220
 Animator:
   serializedVersion: 5
@@ -1642,11 +1642,10 @@ GameObject:
   - component: {fileID: 1527032161}
   - component: {fileID: 1527032160}
   - component: {fileID: 1527032162}
+  - component: {fileID: 1527032174}
   - component: {fileID: 1527032172}
   - component: {fileID: 1527032167}
-  - component: {fileID: 1527032166}
   - component: {fileID: 1527032169}
-  - component: {fileID: 1527032170}
   - component: {fileID: 1527032173}
   - component: {fileID: 1527032171}
   m_Layer: 0
@@ -1751,21 +1750,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1527032166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527032158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e334854316e955f4699e795766ffac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpHeight: 0.5
-  TimeToMaxHeight: 0.3
-  MaxJumps: 2
 --- !u!114 &1527032167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1805,25 +1789,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1527032170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527032158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfbfef9696a3bbf40a7a5c0c3762e7a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 1.8
-  SprintSpeed: 2.8
-  AttackRange: 0.48
-  AttackDamage: 1
-  EnemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!61 &1527032171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1895,6 +1860,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
+--- !u!114 &1527032174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527032158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd285e931a4cbe48b11c1da70129733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1.8
+  SprintSpeed: 2.8
+  JumpHeight: 0.5
+  TimeToMaxHeight: 0.3
+  MaxJumps: 2
+  AttackRange: 0.48
+  AttackDamage: 1
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1786616852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,7 +1902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1786616853
 Animator:
   serializedVersion: 5

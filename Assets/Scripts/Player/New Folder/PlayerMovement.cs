@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed;
@@ -129,3 +129,4 @@ public class PlayerMovement : MonoBehaviour
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Jump);
     }
 }
+*/

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class PlayerJump : MonoBehaviour
 {
     public float JumpHeight;
@@ -87,3 +87,5 @@ public class PlayerJump : MonoBehaviour
         }
     }
 }
+
+*/
