@@ -97,11 +97,11 @@ public class PlayerController : MonoBehaviour
     {
         _isAttacking = true;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
-        Invoke("DealDamage", 0.1f); // Assuming 0.1 seconds for the attack animation to reach the hit point
+        Invoke("DealDamageToEnemy", 0.1f); // Assuming 0.1 seconds for the attack animation to reach the hit point
         Invoke("FinishAttack", 0.5f); // Assuming 0.5 seconds for the complete attack animation duration
     }
 
-    private void DealDamage()
+    private void DealDamageToEnemy()
     {
         Vector2 position = transform.position;
         Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;

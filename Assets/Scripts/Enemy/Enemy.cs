@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public Animator EnemyAnimator;
     public EnemyFMS EnemyMovement; // Referencia al script EnemyFMS
-    public int Health = 3;
+    private int Health = 3;
     public float AttackRange = 0.5f;
     public int AttackDamage = 1;
     public LayerMask PlayerLayer;
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
                 PlayerLive player = hit.collider.GetComponent<PlayerLive>();
                 if (player != null)
                 {
-                    player.TakeDamage(AttackDamage);
+                    player.PlayerTakeDamage(AttackDamage);
                 }
             }
         }
