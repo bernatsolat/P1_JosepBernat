@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                hit.collider.GetComponent<Enemy>().TakeDamage(AttackDamage);
+                hit.collider.GetComponent<Enemy>().EnemyTakeDamage(AttackDamage);
             }
         }
     }

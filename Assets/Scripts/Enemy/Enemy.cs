@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void EnemyTakeDamage(int damage)
     {
         if (EnemyMovement != null)
         {
