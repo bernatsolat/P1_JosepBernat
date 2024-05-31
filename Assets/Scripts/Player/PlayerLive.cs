@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLive : MonoBehaviour
 {
-    private int PlayerHealth = 5;
+    public int Health = 5;
     private HUD hud;
 
     private void Start()
@@ -15,7 +15,7 @@ public class PlayerLive : MonoBehaviour
 
     public void PlayerTakeDamage(int damage)
     {
-        PlayerHealth -= damage;
+        Health -= damage;
         UpdateHUD();
         Invoke("AnimationTakeDamage", 0.8f);
     }
@@ -24,7 +24,7 @@ public class PlayerLive : MonoBehaviour
     {
         for (int i = 0; i < hud.vidas.Length; i++)
         {
-            if (i < PlayerHealth)
+            if (i < Health)
             {
                 hud.ActivarVida(i);
             }
@@ -39,7 +39,7 @@ public class PlayerLive : MonoBehaviour
     {
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
 
-        if (PlayerHealth <= 0)
+        if (Health <= 0)
         {
             Invoke("Die", 0.8f);
         }
@@ -47,7 +47,7 @@ public class PlayerLive : MonoBehaviour
 
     private void Die()
     {
-        
+        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
         Destroy(gameObject);
     }
 }
