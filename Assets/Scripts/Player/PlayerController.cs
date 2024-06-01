@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    AudioManager audioManager;
     [Header("Movement")]
     public float Speed;
     public float SprintSpeed;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool _isAttacking = false;
     private bool _isJumping = false;
     private int _jumpCount = 0;
+    
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
         PhysicsMaterial2D noFrictionMaterial = new PhysicsMaterial2D { friction = 0 };
         GetComponent<BoxCollider2D>().sharedMaterial = noFrictionMaterial;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -95,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
+        audioManager.PlaySFX(audioManager.attack);
         _isAttacking = true;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
         Invoke("DealDamageToEnemy", 0.1f); // Assuming 0.1 seconds for the attack animation to reach the hit point
