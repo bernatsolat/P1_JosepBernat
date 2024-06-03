@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    AudioManager audioManager;
     public Animator EnemyAnimator;
     public EnemyFMS EnemyMovement; // Referencia al script EnemyFMS
     private int Health = 3;
@@ -20,6 +21,8 @@ public class Enemy : MonoBehaviour
         {
             EnemyMovement = GetComponent<EnemyFMS>();
         }
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
     }
 
     public void EnemyTakeDamage(int damage)
@@ -28,7 +31,8 @@ public class Enemy : MonoBehaviour
         {
             EnemyMovement.CanMove = false; // Deshabilitar el movimiento
         }
-
+        
+        audioManager.PlaySFX(audioManager.enemyDamaged);
         EnemyAnimator.SetTrigger("Hurt");
         Health -= damage;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLive : MonoBehaviour
 {
+    AudioManager audioManager;
     public int Health = 5;
     private HUD hud;
 
@@ -11,10 +12,13 @@ public class PlayerLive : MonoBehaviour
     {
         hud = FindObjectOfType<HUD>();
         UpdateHUD();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
     }
 
     public void PlayerTakeDamage(int damage)
     {
+        audioManager.PlaySFX(audioManager.playerDamaged);
         Health -= damage;
         UpdateHUD();
         Invoke("AnimationTakeDamage", 0.8f);

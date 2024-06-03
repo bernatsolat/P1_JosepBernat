@@ -9,8 +9,9 @@ public class AudioManager : MonoBehaviour
     [Header("-------- Audio Clip -------- ")]
     public AudioClip background;
     public AudioClip attack;
-
-
+    public AudioClip enemyDamaged;
+    public AudioClip playerDamaged;
+    public AudioClip background2;
     private void Start()
     {
         musicSource.clip = background;
