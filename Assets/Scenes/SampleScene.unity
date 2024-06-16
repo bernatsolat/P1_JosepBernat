@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d2c7a412073347ad5993f5c150d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PLayer: {fileID: 0}
+  PLayer: {fileID: 927918033}
   forward: 0.5
   smoothing: 4
 --- !u!1 &520285027
@@ -2394,6 +2394,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829145610}
   m_CullTransparentMesh: 1
+--- !u!1 &927918033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4657159722671939781, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+  m_PrefabInstance: {fileID: 1750459312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &952084420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,6 +3606,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4657159722671939781, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846897347311820236, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4508,7 +4521,7 @@ PrefabInstance:
     - target: {fileID: 9104313243316078199, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 927918033}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4573,7 +4586,7 @@ PrefabInstance:
     - target: {fileID: 6710896157537454085, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 927918033}
     - target: {fileID: 7272168450035052490, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
       propertyPath: PlayerLayer.m_Bits
       value: 128
