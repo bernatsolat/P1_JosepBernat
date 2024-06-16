@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public LayerMask PlayerLayer;
 
     private bool isAttacking = false;
+    private bool takingDamage = false;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     public void EnemyTakeDamage(int damage)
     {
+        takingDamage=true;
         if (EnemyMovement != null)
         {
             EnemyMovement.CanMove = false; // Deshabilitar el movimiento
@@ -52,6 +54,7 @@ public class Enemy : MonoBehaviour
         if (EnemyMovement != null)
         {
             EnemyMovement.CanMove = true; // Volver a habilitar el movimiento
+            takingDamage=false;
         }
     }
 
@@ -62,7 +65,7 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        if (!isAttacking)
+        if (!isAttacking&& !takingDamage)
         {
             isAttacking = true;
             EnemyMovement.CanMove = false; // Detener el movimiento durante el ataque
@@ -78,8 +81,9 @@ public class Enemy : MonoBehaviour
     }
     private void DoDamage()
     {
-        
-    Vector2 position = transform.position;
+        if (!takingDamage)
+        { 
+            Vector2 position = transform.position;
         Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         RaycastHit2D[] hits = Physics2D.RaycastAll(position, direction, AttackRange, PlayerLayer);
 
@@ -93,6 +97,7 @@ public class Enemy : MonoBehaviour
                     player.PlayerTakeDamage(AttackDamage);
                 }
             }
+        }
         }
         FinishAttack();
     }
