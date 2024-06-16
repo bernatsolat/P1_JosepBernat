@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     AudioManager audioManager;
     public Animator EnemyAnimator;
-    public EnemyFMS EnemyMovement; // Referencia al script EnemyFMS
+    public EnemyFMS EnemyMovement; 
     private int Health = 3;
     public float AttackRange = 0.5f;
     public int AttackDamage = 1;
@@ -67,14 +67,19 @@ public class Enemy : MonoBehaviour
             isAttacking = true;
             EnemyMovement.CanMove = false; // Detener el movimiento durante el ataque
             EnemyAnimator.SetTrigger("Attack");
-            Invoke("DealDamage", 0.6f); // Ajusta el tiempo según la duración de la animación de ataque
-            Invoke("FinishAttack", 0.8f); // Ajusta el tiempo según la duración completa de la animación de ataque
+            Invoke("DealDamage", 0.667f); 
+            
         }
     }
 
     private void DealDamage()
     {
-        Vector2 position = transform.position;
+        DoDamage();
+    }
+    private void DoDamage()
+    {
+        
+    Vector2 position = transform.position;
         Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         RaycastHit2D[] hits = Physics2D.RaycastAll(position, direction, AttackRange, PlayerLayer);
 
@@ -89,6 +94,7 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+        FinishAttack();
     }
 
     private void FinishAttack()

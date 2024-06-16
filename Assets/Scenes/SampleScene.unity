@@ -853,7 +853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309, y: 93}
+  m_AnchoredPosition: {x: -309, y: 206}
   m_SizeDelta: {x: 182.7908, y: 77.965}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310075052
@@ -4054,7 +4054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 702}
+  m_AnchoredPosition: {x: 962, y: 478}
   m_SizeDelta: {x: 922.6667, y: 498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876925699
@@ -4513,6 +4513,10 @@ PrefabInstance:
     - target: {fileID: 5549383444534005517, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549383444534005517, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6710896157537454085, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
       propertyPath: player
