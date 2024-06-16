@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1814128981400643693
 Transform:
@@ -141,7 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyAnimator: {fileID: 1888289853255056822}
   EnemyMovement: {fileID: 0}
-  Health: 3
   AttackRange: 0.5
   AttackDamage: 1
   PlayerLayer:
