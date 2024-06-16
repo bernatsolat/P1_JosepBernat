@@ -17,12 +17,12 @@ GameObject:
   - component: {fileID: 1650861616946692285}
   - component: {fileID: 5698307235154716945}
   - component: {fileID: 1303773749188509446}
-  m_Layer: 0
-  m_Name: PLayer
+  m_Layer: 7
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1107563293004966645
 Transform:
@@ -260,12 +260,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4996140122868283739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4996140122868283739
 Transform:
