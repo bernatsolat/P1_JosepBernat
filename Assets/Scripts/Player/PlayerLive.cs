@@ -21,7 +21,8 @@ public class PlayerLive : MonoBehaviour
         audioManager.PlaySFX(audioManager.playerDamaged);
         Health -= damage;
         UpdateHUD();
-        Invoke("AnimationTakeDamage", 0.8f);
+        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
+        Invoke("HasTodie", 0.6f);
     }
 
     private void UpdateHUD()
@@ -39,19 +40,13 @@ public class PlayerLive : MonoBehaviour
         }
     }
 
-    public void AnimationTakeDamage()
+    public void HasTodie()
     {
-        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
-
         if (Health <= 0)
         {
-            Invoke("Die", 0.8f);
+        Destroy(gameObject);
         }
     }
 
-    private void Die()
-    {
-        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Die);
-        Destroy(gameObject);
-    }
+    
 }
