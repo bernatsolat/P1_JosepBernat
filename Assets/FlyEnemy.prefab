@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 7272168450035052490}
   - component: {fileID: 2987134280088245766}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: FlyEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1814128981400643693
 Transform:
