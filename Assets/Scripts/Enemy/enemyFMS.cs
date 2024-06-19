@@ -6,18 +6,18 @@ public class EnemyFMS : MonoBehaviour
 {
     public float speed;
     public GameObject player;
-    public float timeToChange = 4f;
+    
     public bool isRight = false;
     public bool CanMove = true; // Nueva bandera para controlar el movimiento
     public float attackDistance = 0.5f; // Distancia para iniciar el ataque
 
     private Vector3 initialScale;
-    private float timer;
+   
     private Enemy enemy;
 
     void Start()
     {
-        timer = timeToChange;
+       
         initialScale = transform.localScale;
         enemy = GetComponent<Enemy>();
     }
