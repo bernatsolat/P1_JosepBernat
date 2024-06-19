@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 146716133}
   - component: {fileID: 146716132}
   - component: {fileID: 146716131}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: crate-stack (4)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ca7708ff8abce724fa8ac65f7c0b0a1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -1522,7 +1522,7 @@ GameObject:
   - component: {fileID: 462734189}
   - component: {fileID: 462734188}
   - component: {fileID: 462734187}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: crate-stack
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1940,6 +1940,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4468264042029227218, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5549383444534005517, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -2291,7 +2295,7 @@ GameObject:
   - component: {fileID: 814245227}
   - component: {fileID: 814245226}
   - component: {fileID: 814245225}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: crate-stack (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2577,9 +2581,29 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4996140122868283739, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996140122868283739, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996140122868283739, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996140122868283739, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
       propertyPath: JumpHeight
-      value: 0.3
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846897347311820236, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6846897347311820236, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3407,6 +3431,10 @@ PrefabInstance:
       propertyPath: PlayerLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 3283737500852162596, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7460357758431792130, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.07
@@ -3445,6 +3473,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460357758431792130, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332958216012499268, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332958216012499268, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332958216012499268, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8404349858355931743, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
@@ -3617,7 +3657,7 @@ GameObject:
   - component: {fileID: 1569169029}
   - component: {fileID: 1569169028}
   - component: {fileID: 1569169027}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: crate-stack (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4390,7 +4430,7 @@ GameObject:
   - component: {fileID: 2000315042}
   - component: {fileID: 2000315041}
   - component: {fileID: 2000315040}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: crate-stack (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4629,7 +4669,7 @@ GameObject:
   - component: {fileID: 2002586590}
   - component: {fileID: 2002586589}
   - component: {fileID: 2002586588}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: wagon
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4687,86 +4727,9 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 2002586590}
-    m_ColliderPaths:
-    - - X: -50000
-        Y: -3150000
-      - X: 950000
-        Y: -3750000
-      - X: 3250000
-        Y: -3750000
-      - X: 3850000
-        Y: -3250000
-      - X: 4650000
-        Y: -2350000
-      - X: 4650000
-        Y: -1850000
-      - X: 4250000
-        Y: -1550000
-      - X: 4650000
-        Y: -350000
-      - X: 4650000
-        Y: 1150000
-      - X: 3949999
-        Y: 2450000
-      - X: 3349999
-        Y: 3450000
-      - X: 2350000
-        Y: 3750000
-      - X: -1649999
-        Y: 3750000
-      - X: -3050000
-        Y: 3150000
-      - X: -3649999
-        Y: 2350000
-      - X: -4650000
-        Y: 1349999
-      - X: -4650000
-        Y: -1450000
-      - X: -4150000
-        Y: -2949999
-      - X: -2750000
-        Y: -3750000
-      - X: -650000
-        Y: -3750000
-    - - X: 50000
-        Y: -1949999
-      - X: -150000
-        Y: -1649999
-      - X: 749999
-        Y: -1550000
-      - X: 550000
-        Y: -1649999
-      - X: 449999
-        Y: -1949999
+  m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: -0.0650108, y: -0.375}
-      - {x: -0.0049813, y: -0.3150112}
-      - {x: 0.0950069, y: -0.375}
-      - {x: 0.3250072, y: -0.374994}
-      - {x: 0.3850014, y: -0.3249984}
-      - {x: 0.465, y: -0.2349903}
-      - {x: 0.4649894, y: -0.1849921}
-      - {x: 0.4250062, y: -0.1549811}
-      - {x: 0.465, y: -0.0349958}
-      - {x: 0.464997, y: 0.1150057}
-      - {x: 0.3949986, y: 0.2450024}
-      - {x: 0.3349904, y: 0.3450028}
-      - {x: 0.2349961, y: 0.375}
-      - {x: -0.1650047, y: 0.374998}
-      - {x: -0.3050042, y: 0.3149946}
-      - {x: -0.3649997, y: 0.2350004}
-      - {x: -0.465, y: 0.1349891}
-      - {x: -0.4649987, y: -0.1450038}
-      - {x: -0.4149914, y: -0.2950048}
-      - {x: -0.2749931, y: -0.375}
-    - - {x: 0.0450064, y: -0.1949808}
-      - {x: 0.004992, y: -0.194988}
-      - {x: -0.014946301, y: -0.1649939}
-      - {x: 0.0747865, y: -0.15510671}
-      - {x: 0.0549967, y: -0.16501}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -4829,7 +4792,7 @@ PolygonCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
