@@ -42,11 +42,12 @@ public class PlayerLive : MonoBehaviour
             }
         }
     }
-
+    
     public void HasTodie()
     {
         if (Health <= 0)
         {
+        Camera.main.GetComponent<CameraScript>().enabled = false;
         Destroy(gameObject);
         Time.timeScale = 0;
         deadMenu.SetActive(true);
