@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     AudioManager audioManager;
     public Animator EnemyAnimator;
-    public EnemyFMS EnemyMovement; 
+    public EnemyFMS EnemyMovement;
     private int Health = 3;
     public float AttackRange = 0.5f;
     public int AttackDamage = 1;
@@ -17,23 +17,21 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        // Asegúrate de que EnemyMovement esté asignado
         if (EnemyMovement == null)
         {
             EnemyMovement = GetComponent<EnemyFMS>();
         }
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-
     }
 
     public void EnemyTakeDamage(int damage)
     {
-        takingDamage=true;
+        takingDamage = true;
         if (EnemyMovement != null)
         {
-            EnemyMovement.CanMove = false; // Deshabilitar el movimiento
+            EnemyMovement.CanMove = false;
         }
-        
+
         audioManager.PlaySFX(audioManager.enemyDamaged);
         EnemyAnimator.SetTrigger("Hurt");
         Health -= damage;
@@ -41,11 +39,11 @@ public class Enemy : MonoBehaviour
         if (Health <= 0)
         {
             EnemyAnimator.SetBool("Dead", true);
-            Invoke("Die", 0.8f); // Desactivar después de 0.8 segundos
+            Invoke("Die", 0.8f);
         }
         else
         {
-            Invoke("EnableMovement", 0.5f); // Volver a habilitar el movimiento después de la animación de daño
+            Invoke("EnableMovement", 0.5f);
         }
     }
 
@@ -53,8 +51,8 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyMovement != null)
         {
-            EnemyMovement.CanMove = true; // Volver a habilitar el movimiento
-            takingDamage=false;
+            EnemyMovement.ResumeAfterDamage();
+            takingDamage = false;
         }
     }
 
@@ -65,39 +63,34 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        if (!isAttacking&& !takingDamage)
+        if (!isAttacking && !takingDamage)
         {
             isAttacking = true;
-            EnemyMovement.CanMove = false; // Detener el movimiento durante el ataque
+            EnemyMovement.CanMove = false;
             EnemyAnimator.SetTrigger("Attack");
-            Invoke("DealDamage", 0.667f); 
-            
+            Invoke("DealDamage", 0.667f);
         }
     }
 
     private void DealDamage()
     {
-        DoDamage();
-    }
-    private void DoDamage()
-    {
         if (!takingDamage)
-        { 
-            Vector2 position = transform.position;
-        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-        RaycastHit2D[] hits = Physics2D.RaycastAll(position, direction, AttackRange, PlayerLayer);
-
-        foreach (RaycastHit2D hit in hits)
         {
-            if (hit.collider != null)
+            Vector2 position = transform.position;
+            Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            RaycastHit2D[] hits = Physics2D.RaycastAll(position, direction, AttackRange, PlayerLayer);
+
+            foreach (RaycastHit2D hit in hits)
             {
-                PlayerLive player = hit.collider.GetComponent<PlayerLive>();
-                if (player != null)
+                if (hit.collider != null)
                 {
-                    player.PlayerTakeDamage(AttackDamage);
+                    PlayerLive player = hit.collider.GetComponent<PlayerLive>();
+                    if (player != null)
+                    {
+                        player.PlayerTakeDamage(AttackDamage);
+                    }
                 }
             }
-        }
         }
         FinishAttack();
     }
@@ -105,6 +98,6 @@ public class Enemy : MonoBehaviour
     private void FinishAttack()
     {
         isAttacking = false;
-        EnemyMovement.CanMove = true; // Permitir el movimiento nuevamente
+        EnemyMovement.OnAttackComplete();
     }
 }
