@@ -8,6 +8,9 @@ public class PlayerLive : MonoBehaviour
     public int Health = 5;
     private HUD hud;
 
+    [SerializeField]
+    private GameObject deadMenu;
+
     private void Start()
     {
         hud = FindObjectOfType<HUD>();
@@ -45,6 +48,9 @@ public class PlayerLive : MonoBehaviour
         if (Health <= 0)
         {
         Destroy(gameObject);
+        Time.timeScale = 0;
+        deadMenu.SetActive(true);
+        
         }
     }
 
