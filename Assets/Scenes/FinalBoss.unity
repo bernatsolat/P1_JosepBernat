@@ -2495,37 +2495,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 49599942}
   m_SourcePrefab: {fileID: 100100000, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
---- !u!1 &396838845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 396838846}
-  m_Layer: 7
-  m_Name: ControladorAtaque
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &396838846
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396838845}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.166, y: 0.025, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 927918043}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502619358
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,36 +6860,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4657159722671939781, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
-      propertyPath: JumpHeight
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
-      propertyPath: "da\xF1oGolpe"
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
-      propertyPath: radioGolpe
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
-      propertyPath: controladorGolpe
-      value: 
-      objectReference: {fileID: 396838846}
-    - target: {fileID: 6846897347311820236, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1107563293004966645, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 396838846}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
 --- !u!1 &1813995735
