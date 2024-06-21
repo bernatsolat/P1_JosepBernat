@@ -5527,6 +5527,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 258019685930235051, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: rb2D
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 258019685930235051, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
       propertyPath: jugador
       value: 
       objectReference: {fileID: 927918043}
