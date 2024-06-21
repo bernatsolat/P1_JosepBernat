@@ -9,7 +9,6 @@ public class playerFall : MonoBehaviour
 
     private void Start()
     {
-        // Encuentra la instancia de PlayerLive en el GameObject del jugador.
         playerLive = FindObjectOfType<PlayerLive>();
 
     }
@@ -18,9 +17,9 @@ public class playerFall : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // El personaje ha caído al vacío
+            playerLive.Health = 0;
             Debug.Log("El personaje ha caído al vacío");
-            playerLive.HasTodie(); // Llama directamente al método HasTodie()
+            playerLive.HasTodie(); 
         }
     }
 
