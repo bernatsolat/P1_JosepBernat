@@ -2543,7 +2543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d2c7a412073347ad5993f5c150d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 927918043}
   smoothing: 4
 --- !u!1 &520285027
 GameObject:
@@ -5536,7 +5536,7 @@ PrefabInstance:
       objectReference: {fileID: 987460273}
     - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
       propertyPath: m_Mass
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
       propertyPath: m_LinearDrag
@@ -5549,6 +5549,14 @@ PrefabInstance:
     - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3853679309577060353, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
       propertyPath: m_Name
