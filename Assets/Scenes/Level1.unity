@@ -4661,6 +4661,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1262021131}
     - target: {fileID: 6710896157537454085, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
+      propertyPath: patrolRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6710896157537454085, guid: 3d4eb9608d792a148aa77eded1dbe8a2, type: 3}
       propertyPath: leftPatrolPoint
       value: 
       objectReference: {fileID: 799591970}
@@ -8871,6 +8875,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1262021131}
+    - target: {fileID: 9104313243316078199, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
+      propertyPath: patrolRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9104313243316078199, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
       propertyPath: leftPatrolPoint
       value: 
