@@ -5534,9 +5534,41 @@ PrefabInstance:
       propertyPath: barraDeVida
       value: 
       objectReference: {fileID: 987460273}
+    - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413514867537031919, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3853679309577060353, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
       propertyPath: m_Name
       value: Jefe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757162653932309357, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2441473
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757162653932309357, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4664855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757162653932309357, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.36670446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757162653932309357, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.20828843
       objectReference: {fileID: 0}
     - target: {fileID: 7280333059804160504, guid: 6d317fb559ba56f47adb064ae25216ea, type: 3}
       propertyPath: m_LocalPosition.x
