@@ -198,6 +198,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13288277}
   m_CullTransparentMesh: 1
+--- !u!1 &29770916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29770917}
+  m_Layer: 7
+  m_Name: ControladorAtaque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29770917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29770916}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.175, y: 0.03, z: 0}
+  m_LocalScale: {x: 1.1999999, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 991109110}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &58969343
 GameObject:
   m_ObjectHideFlags: 0
@@ -4941,6 +4972,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.3}
   m_EdgeRadius: 0
+--- !u!1 &502506274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8404349858355931743, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
+  m_PrefabInstance: {fileID: 1464325197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &502506281
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502506274}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1001 &505452254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5321,6 +5384,7 @@ MonoBehaviour:
   playerDamaged: {fileID: 8300000, guid: 0bb6515f17d2dfd4b9afe350c2f116e3, type: 3}
   background2: {fileID: 0}
   coinCollect: {fileID: 8300000, guid: 0495b88033a5d89428563b347261e4ee, type: 3}
+  deathScream: {fileID: 8300000, guid: 9b548e0acd09d1048917ac8216e021f1, type: 3}
 --- !u!4 &561028610
 Transform:
   m_ObjectHideFlags: 0
@@ -6927,6 +6991,18 @@ PrefabInstance:
       propertyPath: JumpHeight
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: "da\xF1oGolpe"
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: radioGolpe
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260278472831709896, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      propertyPath: controladorGolpe
+      value: 
+      objectReference: {fileID: 29770917}
     - target: {fileID: 6846897347311820236, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
       propertyPath: m_Icon
       value: 
@@ -6937,7 +7013,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1107563293004966645, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 29770917}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33f637dcf19a1bf438c348b0c6f2c446, type: 3}
 --- !u!1 &819001258
@@ -10453,7 +10532,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8404349858355931743, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 502506281}
   m_SourcePrefab: {fileID: 100100000, guid: d5a7cd59eb9b54047bdabbf9965aa475, type: 3}
 --- !u!1 &1504667794
 GameObject:
