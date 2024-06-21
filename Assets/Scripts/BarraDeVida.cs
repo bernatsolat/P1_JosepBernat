@@ -2,33 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-
 
 public class BarraDeVida : MonoBehaviour
 {
-
-    private UnityEngine.UI.Slider slider;
+    private Slider slider;
 
     private void Start()
     {
-        slider = GetComponent<UnityEngine.UI.Slider>();
+        slider = GetComponent<Slider>();
+        if (slider == null)
+        {
+            Debug.LogError("Slider component is not found on " + gameObject.name);
+        }
     }
 
-    public void CambiarVidaMaxima(float vidaMaxima) {
-        slider.maxValue = vidaMaxima;
-    }
-    public void CambiarVidaActual(float cantidadVida)
+    public void CambiarVidaMaxima(int vidaMaxima)
     {
-        slider.value = cantidadVida;
-    }
-        
-            
-        
-        public void InicializarBarraDeVida(float cantidadVida)
+        if (slider != null)
         {
-            CambiarVidaActual(cantidadVida);
-            CambiarVidaMaxima(cantidadVida);
-    
+            slider.maxValue = vidaMaxima;
         }
+        else
+        {
+            Debug.LogError("Slider is null when trying to set max value.");
+        }
+    }
+
+    public void CambiarVidaActual(int cantidadVida)
+    {
+        if (slider != null)
+        {
+            slider.value = cantidadVida;
+        }
+        else
+        {
+            Debug.LogError("Slider is null when trying to set value.");
+        }
+    }
+
+    public void InicializarBarraDeVida(int cantidadVida)
+    {
+        CambiarVidaMaxima(cantidadVida);
+        CambiarVidaActual(cantidadVida);
+    }
 }

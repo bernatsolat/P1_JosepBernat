@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class jefe_CaminarBehaviour : StateMachineBehaviour
+public class Jefe_CaminarBehaviour: StateMachineBehaviour
 {
     private Jefe jefe;
 

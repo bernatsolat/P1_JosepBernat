@@ -141,6 +141,27 @@ public class PlayerController : MonoBehaviour
                 }
 
                 enemy.EnemyTakeDamage(dañoGolpe);
+
+
+            }
+        }
+        foreach (Collider2D colisionador in objetos)
+        {
+            if (colisionador == null)
+            {
+                Debug.LogWarning("colisionador is null.");
+                continue;
+            }
+            if (colisionador.CompareTag("Jefe"))
+            {
+                Jefe jefe = colisionador.transform.GetComponent<Jefe>();
+                if (jefe == null)
+                {
+                    Debug.LogWarning("Jefe component is not found on: " + colisionador.name);
+                    continue;
+                }
+
+                jefe.JefeTakeDamage(dañoGolpe);
             }
         }
         Invoke("FinishAttack", 0.48f); // Assuming 0.5 seconds for the complete attack animation duration

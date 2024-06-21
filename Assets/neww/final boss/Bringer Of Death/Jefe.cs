@@ -14,30 +14,63 @@ public class Jefe : MonoBehaviour
     public Transform jugador;
 
     private bool mirandoDerecha = true;
+
     [Header("Vida")]
 
-    [SerializeField] private float vida;
-
+    [SerializeField] private int vida;
+    [SerializeField] private int maximoVida;
     [SerializeField] private BarraDeVida barraDeVida;
 
-    private void Start() {
+    [Header("Ataque")]
+
+    [SerializeField] private Transform controladorAtaque;
+
+    [SerializeField] private float radioAtaque;
+    [SerializeField] private int dañoAtaque;
+
+
+    private void Start()
+    {
+        vida = maximoVida;
         animator = GetComponent<Animator>();
-        rb2D = GetComponent<Rigidbody2D>();
-        barraDeVida.InicializarBarraDeVida(vida);
+         rb2D = GetComponent<Rigidbody2D>();
+
+        if (barraDeVida != null)
+        {
+            barraDeVida.InicializarBarraDeVida(vida);
+        }
+        else
+        {
+            Debug.LogError("BarraDeVida is not assigned.");
+        }
+
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
+    private void Update() {
+        float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+        animator.SetFloat("DPlayer", distanciaJugador);
+    }
 
-    public void EnemyTakeDamage(float daño)
+
+public void JefeTakeDamage(int daño)
     {
         vida -= daño;
-        barraDeVida.CambiarVidaActual(vida);
+        if (barraDeVida != null)
+        {
+            barraDeVida.CambiarVidaActual(vida);
+        }
+        else
+        {
+            Debug.LogError("BarraDeVida is not assigned.");
+        }
+
         if (vida <= 0)
         {
             animator.SetTrigger("Death");
-        
         }
     }
+
 
     private void Death() 
     {
@@ -54,4 +87,21 @@ public class Jefe : MonoBehaviour
             }
         }
      }
+    public void Ataque()
+    {
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorAtaque.position, radioAtaque);
+        foreach (Collider2D colision in objetos)
+        {
+            if (colision.CompareTag("Player"))
+            {
+                colision.GetComponent<PlayerLive>().PlayerTakeDamage(dañoAtaque);
+            }
+        }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(controladorAtaque.position, radioAtaque);
+    }
+
 }
