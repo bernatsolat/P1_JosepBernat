@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip enemyDamaged;
     public AudioClip playerDamaged;
     public AudioClip background2;
+    public AudioClip coinCollect;
     private void Start()
     {
         musicSource.clip = background;
