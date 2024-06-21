@@ -68,6 +68,8 @@ public void JefeTakeDamage(int daño)
         if (vida <= 0)
         {
             animator.SetTrigger("Death");
+            Invoke("Death", 1);
+             
         }
     }
 
