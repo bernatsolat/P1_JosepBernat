@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 
@@ -17,17 +18,18 @@ public class PlayerController : MonoBehaviour
     public int MaxJumps = 4;
 
     [Header("Attacking")]
-    public float AttackRange;
-    public int AttackDamage;
-    public LayerMask EnemyLayer;
+    [SerializeField] private Transform controladorGolpe;
+    [SerializeField] private float radioGolpe;
+    [SerializeField] private int dañoGolpe;
+    private bool _isAttacking = false;
 
     private Rigidbody2D _rigidbody;
     private CollisionDetection _collisionDetection;
     private float _horizontal;
-    private bool _isAttacking = false;
+    
     private bool _isJumping = false;
     private int _jumpCount = 0;
-    
+
 
     private void Start()
     {
@@ -36,7 +38,26 @@ public class PlayerController : MonoBehaviour
 
         PhysicsMaterial2D noFrictionMaterial = new PhysicsMaterial2D { friction = 0 };
         GetComponent<BoxCollider2D>().sharedMaterial = noFrictionMaterial;
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+        GameObject audioObject = GameObject.FindGameObjectWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioManager = audioObject.GetComponent<AudioManager>();
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager GameObject not found.");
+        }
+
+        if (audioManager == null)
+        {
+            Debug.LogWarning("AudioManager component is not found.");
+        }
+
+        if (controladorGolpe == null)
+        {
+            Debug.LogWarning("Controlador Golpe is not assigned in the inspector.");
+        }
     }
 
     private void Update()
@@ -73,6 +94,70 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Attack()
+    {
+        if (audioManager == null)
+        {
+            Debug.LogWarning("audioManager is not set.");
+            return;
+        }
+
+        _isAttacking = true;
+        audioManager.PlaySFX(audioManager.attack);
+
+        if (PlayerAnimations.Instance != null)
+        {
+            PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Attack);
+        }
+
+        Golpe();
+    }
+    private void Golpe()
+    {
+        if (controladorGolpe == null)
+        {
+            Debug.LogWarning("controladorGolpe is not set.");
+            return;
+        }
+
+        Debug.Log("controladorGolpe is set.");
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
+        foreach (Collider2D colisionador in objetos)
+        {
+            if (colisionador == null)
+            {
+                Debug.LogWarning("colisionador is null.");
+                continue;
+            }
+
+            if (colisionador.CompareTag("Enemy"))
+            {
+                Debug.Log("Enemy hit: " + colisionador.name);
+                Enemy enemy = colisionador.transform.GetComponent<Enemy>();
+                if (enemy == null)
+                {
+                    Debug.LogWarning("Enemy component is not found on: " + colisionador.name);
+                    continue;
+                }
+
+                enemy.EnemyTakeDamage(dañoGolpe);
+            }
+        }
+        Invoke("FinishAttack", 0.48f); // Assuming 0.5 seconds for the complete attack animation duration
+    }
+
+    private void FinishAttack()
+    {
+        _isAttacking = false;
+        PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
+    }
+    private void OnDrawGizmos()
+    {
+        if (controladorGolpe == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
+    }
     private void HandleMovement()
     {
         if (_horizontal < 0.0f)
@@ -95,7 +180,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    /*
     private void Attack()
     {
         audioManager.PlaySFX(audioManager.attack);
@@ -119,20 +204,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     private void FinishAttack()
     {
         _isAttacking = false;
         PlayerAnimations.Instance.ChangeAnimation(PlayerAnim.Idle);
     }
+    */
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Vector2 position = transform.position;
-        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-        Gizmos.DrawLine(position, position + direction * AttackRange);
-    }
+   
 
     private void TryJump()
     {
