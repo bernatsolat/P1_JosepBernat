@@ -47,6 +47,7 @@ public class PlayerLive : MonoBehaviour
     {
         if (Health <= 0)
         {
+        audioManager.PlaySFX(audioManager.deathScream);
         Camera.main.GetComponent<CameraScript>().enabled = false;
         Destroy(gameObject);
         Time.timeScale = 0;
