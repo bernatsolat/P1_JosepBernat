@@ -43,11 +43,15 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Invoke("EnableMovement", 0.5f);
+            Invoke("EnableMovement", 0.7f);
         }
     }
 
     private void EnableMovement()
+    {
+        damagedone();
+    }
+    private void damagedone()
     {
         if (EnemyMovement != null)
         {
